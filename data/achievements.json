@@ -1,0 +1,58 @@
+[
+  {
+    "id": "star-performer-q3-2024",
+    "title": "Star Performer Award",
+    "issuer": "Robi Axiata — Corporate Strategy",
+    "date": "Q3 2024",
+    "category": "award"
+  },
+  {
+    "id": "star-performer-q4-2023",
+    "title": "Star Performer Award",
+    "issuer": "Robi Axiata — Corporate Strategy",
+    "date": "Q4 2023",
+    "category": "award"
+  },
+  {
+    "id": "star-performer-q3-2023",
+    "title": "Star Performer Award",
+    "issuer": "Robi Axiata — Corporate Strategy",
+    "date": "Q3 2023",
+    "category": "award"
+  },
+  {
+    "id": "emerging-star-2022",
+    "title": "Emerging Star Award",
+    "issuer": "Robi Axiata — Corporate Strategy",
+    "date": "Q3 2022",
+    "category": "award"
+  },
+  {
+    "id": "best-analytics-team",
+    "title": "Best Analytics Team",
+    "issuer": "Axiata Group",
+    "date": "2022",
+    "category": "team-award"
+  },
+  {
+    "id": "ibm-data-science",
+    "title": "IBM Data Science Professional Certificate",
+    "issuer": "IBM — Coursera (10-course specialization)",
+    "date": "2021",
+    "category": "certification"
+  },
+  {
+    "id": "sql-gold",
+    "title": "SQL Advanced — Gold Badge",
+    "issuer": "HackerRank",
+    "date": "2021",
+    "category": "certification"
+  },
+  {
+    "id": "rice-stats",
+    "title": "Business Statistics and Analysis Specialization",
+    "issuer": "Rice University — Coursera (5-course specialization)",
+    "date": "2021",
+    "category": "certification"
+  }
+]

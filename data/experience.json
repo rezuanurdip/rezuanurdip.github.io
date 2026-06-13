@@ -1,0 +1,49 @@
+[
+  {
+    "id": "robi-am",
+    "company": "Robi Axiata Limited",
+    "role": "Associate Manager, AI and Data Science",
+    "startDate": "Aug 2025",
+    "endDate": "Present",
+    "location": "Dhaka, Bangladesh",
+    "current": true,
+    "highlights": [
+      "Designed a greedy optimization algorithm for site placement across a country-wide network expansion, using Gaussian-decay-based population scoring and exclusion-radius tuning on a large-scale building dataset — a data science approach that meaningfully improved on the existing placement methodology.",
+      "Analyzed brand loyalty and activation patterns per site cluster — modeling ARPU and retention behavior to identify saturation points, with results feeding directly into campaign and sales strategy.",
+      "Implemented ML-powered image detection and classification to improve monitoring and visibility of field trade activities.",
+      "Built a cost-efficient geolocation enrichment pipeline leveraging mapping APIs with adaptive auto-gridding and pagination, identifying schools and points of interest nationwide to enhance sales planning — a blend of data engineering and data science.",
+      "Developed an LLM-based application leveraging embeddings to automate voice-of-customer response generation, streamlining daily feedback handling and reducing turnaround time while lowering operational costs — an embedding & LLM-driven automation workflow.",
+      "Collaborated with Operations to operationalize and integrate AI solutions into business platforms.",
+      "Played a pivotal role in stakeholder management, transforming business problems into AI solutions as the company adopted an AI-first strategy."
+    ]
+  },
+  {
+    "id": "robi-sa",
+    "company": "Robi Axiata Limited",
+    "role": "Senior Associate, Strategic Analytics and AI Planning",
+    "startDate": "Jan 2022",
+    "endDate": "Jul 2025",
+    "location": "Dhaka, Bangladesh",
+    "current": false,
+    "highlights": [
+      "Led development and operationalization of Customer360 across the subscriber base by integrating multiple data sources (Hadoop, Oracle, PySpark), enabling a broad suite of daily KPIs for campaigns, analytics, AI use cases, and reporting, with workflows migrated to Airflow — a large-scale data engineering and BI initiative.",
+      "Developed and maintained datamarts from probabilistic data sources (DNA), processing high-volume daily session records to power customer personas, digital usage insights, and discovery of new app hosts.",
+      "Integrated app attribution data at the session level and built brand-driven use cases including ad source quality analysis, customer segmentation, silent user tracking, Wi-Fi/multi-SIM detection, and user journey funneling — combining data engineering with data science.",
+      "Redesigned data pipelines and reporting for Corporate and SME businesses by integrating additional sources beyond core billing systems — including leads, targets, and other revenue streams — with enriched account-level data, strengthening BI reporting.",
+      "Developed and executed long & short-term data product strategies and roadmaps to grow revenue, usage, and market share.",
+      "Automated reporting and developed and optimized regular data pipelines from source systems to BI platforms — a continued data engineering and storytelling focus."
+    ]
+  },
+  {
+    "id": "robi-intern",
+    "company": "Robi Axiata Limited",
+    "role": "Intern, Customer Lifecycle Management & International Business",
+    "startDate": "Feb 2021",
+    "endDate": "May 2021",
+    "location": "Dhaka, Bangladesh",
+    "current": false,
+    "highlights": [
+      "Developed a prototype ML model to generate personalized consumer offers based on historical usage patterns."
+    ]
+  }
+]

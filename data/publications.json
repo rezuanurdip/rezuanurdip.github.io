@@ -1,0 +1,32 @@
+[
+  {
+    "id": "pub-cardiovascular",
+    "title": "Comparative Analysis of Different Machine Learning Algorithms in Predicting Cardiovascular Diseases",
+    "venue": "Engineering Letters Journal",
+    "year": 2021,
+    "type": "journal",
+    "quartile": "Q2",
+    "link": "#",
+    "abstract": "A systematic comparison of multiple ML algorithms for cardiovascular disease prediction, evaluating performance across standard medical benchmark datasets."
+  },
+  {
+    "id": "pub-thyroid",
+    "title": "Computer Aided Diagnosis of Thyroid Disease Using Machine Learning Algorithms",
+    "venue": "11th International Conference on Electrical and Computer Engineering (ICECE 2020)",
+    "year": 2020,
+    "type": "conference",
+    "quartile": "IEEE",
+    "link": "#",
+    "abstract": "Proposed a computer-aided diagnostic pipeline applying classification algorithms to thyroid disease detection, presented at ICECE 2020."
+  },
+  {
+    "id": "pub-kidney",
+    "title": "Performance Investigation of Different Boosting Algorithms in Predicting Chronic Kidney Disease",
+    "venue": "2nd International Conference on Sustainable Technologies for Industry 4.0",
+    "year": 2021,
+    "type": "conference",
+    "quartile": "IEEE",
+    "link": "#",
+    "abstract": "Benchmarked gradient boosting variants (XGBoost, LightGBM, AdaBoost) on chronic kidney disease prediction with feature importance analysis."
+  }
+]

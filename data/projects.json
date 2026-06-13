@@ -1,0 +1,62 @@
+[
+  {
+    "id": "network-coverage-optimizer",
+    "title": "Network Coverage Optimization Engine",
+    "summary": "Greedy algorithm for nationwide tower site placement using Gaussian-decay population scoring on a 121M-row building dataset. Supports configurable exclusion radii, region vs. thana scan modes, and BallTree spatial search. Improved placement effectiveness by ~20% over previous methodology.",
+    "tags": ["Geospatial", "Optimization", "Network Planning"],
+    "stack": ["Python", "BallTree", "GeoPandas", "Folium", "Flask"],
+    "links": { "demo": "", "repo": "", "writeup": "" },
+    "featured": true,
+    "year": 2024
+  },
+  {
+    "id": "customer360",
+    "title": "Customer360 — Unified Telecom Data Platform",
+    "summary": "End-to-end data platform integrating 18 data sources across Hadoop, Oracle, and PySpark for 50M+ users. Delivers 300+ daily KPIs for campaigns, analytics, and AI use cases. Fully orchestrated on Airflow.",
+    "tags": ["Data Engineering", "Big Data", "BI"],
+    "stack": ["PySpark", "Hadoop", "Oracle", "Airflow", "Tableau"],
+    "links": { "demo": "", "repo": "", "writeup": "" },
+    "featured": true,
+    "year": 2023
+  },
+  {
+    "id": "voc-automation",
+    "title": "VOC Response Automation (LLM + Embeddings)",
+    "summary": "LLM-based pipeline using semantic embeddings to automate Voice of Customer responses at 80% accuracy. Processes 3K+ daily feedbacks and reduced response time from 72 hours to 1 day. Cost-optimised by using embeddings over generative LLMs for routing.",
+    "tags": ["GenAI", "NLP", "Automation"],
+    "stack": ["Python", "Embeddings", "LLM", "AWS Bedrock"],
+    "links": { "demo": "", "repo": "", "writeup": "" },
+    "featured": true,
+    "year": 2024
+  },
+  {
+    "id": "urbanization-scoring",
+    "title": "Thana-Level Urbanization Scoring System",
+    "summary": "Cluster-based urbanization scoring for Bangladesh using a large building dataset. Engineered features include density, height profile, land use, and contiguity — clustered into Rural/Urban/Metro-Core tiers with revenue correlation analysis.",
+    "tags": ["Geospatial", "Clustering", "Telecom Analytics"],
+    "stack": ["Python", "GeoPandas", "Scikit-learn", "Folium"],
+    "links": { "demo": "", "repo": "", "writeup": "" },
+    "featured": false,
+    "year": 2024
+  },
+  {
+    "id": "genai-bi-assistant",
+    "title": "GenAI BI Assistant (Axiata AWS Hackathon)",
+    "summary": "Natural-language to SQL analytics system built on AWS Bedrock. Turns business questions into SQL queries, executes on live data, and returns narrative summaries. Built with Claude 3 Sonnet, Titan Embeddings V2, FAISS, and LangChain. Presented at Axiata AWS GenAI Hackathon.",
+    "tags": ["GenAI", "RAG", "BI", "Hackathon"],
+    "stack": ["AWS Bedrock", "Claude 3 Sonnet", "FAISS", "LangChain", "Flask"],
+    "links": { "demo": "", "repo": "", "writeup": "" },
+    "featured": true,
+    "year": 2023
+  },
+  {
+    "id": "datathon-website",
+    "title": "Datathon 2.0 — Official Website",
+    "summary": "Built and launched the official website for Datathon 2.0, the largest data competition in Bangladesh. Delivered 5K+ registrations.",
+    "tags": ["Web Development", "Open Source"],
+    "stack": ["HTML", "CSS", "JavaScript"],
+    "links": { "demo": "", "repo": "", "writeup": "" },
+    "featured": false,
+    "year": 2022
+  }
+]

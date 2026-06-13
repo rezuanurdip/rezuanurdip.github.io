@@ -1,0 +1,12 @@
+[
+  {
+    "id": "semantic-sense",
+    "name": "Semantic-Sense",
+    "language": "Python",
+    "description": "A hybrid anomaly-detection library for tabular data that combines semantic embeddings of categorical/text features with numeric signals to flag outliers. Recognizes semantic relationships — \"bread\" is closer to \"sandwich\" than to \"meat\" — making it far more accurate than numeric-only approaches on mixed-type datasets.",
+    "longDescription": "Most anomaly detection libraries treat categorical columns as plain labels or drop them entirely. Semantic-Sense encodes them as dense vectors using lightweight sentence embeddings, then fuses those vectors with numeric signals in a unified scoring pipeline. The result: contextually-aware outlier detection that understands that a transaction category of 'grocery' near a 'pharmacy' purchase is less anomalous than one near 'casino'.",
+    "repo": "https://github.com/rezuanurdip/semantic-sense",
+    "stars": null,
+    "featured": true
+  }
+]

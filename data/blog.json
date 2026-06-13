@@ -1,0 +1,102 @@
+[
+  {
+    "id": "semantic-sense-intro",
+    "title": "Introducing Semantic-Sense: Anomaly Detection That Actually Understands Your Data",
+    "date": "2025-09-08",
+    "summary": "Why numeric-only outlier detection fails on mixed tabular data — and how combining lightweight semantic embeddings with numeric signals changes the game. A deep dive into the open-source library I built.",
+    "tags": ["Open Source", "Anomaly Detection", "NLP", "Python"],
+    "thumbnail": "/images/blog/semantic-sense.png",
+    "externalUrl": "https://www.linkedin.com/pulse/semantic-sense-catch-anomalies-semantic-understanding-dip-6ww5c/",
+    "featured": true
+  },
+  {
+    "id": "deepseek",
+    "title": "DeepThink on DeepSeek",
+    "date": "2025-02-23",
+    "summary": "DeepSeek R1 uses a Mixture of Experts (MoE) architecture, which is a significant departure from the Dense Transformer structure used in traditional models like GPT. These two architectures have distinct characteristics, each offering its own set of strengths and challenges.",
+    "tags": ["GenAI", "LLM", "Production ML", "Cost Optimization"],
+    "thumbnail": "/images/blog/deepseek.png",
+    "externalUrl": "https://www.linkedin.com/pulse/deepthink-deepseek-rezuanur-rahman-dip-dqfuc/",
+    "featured": true
+  },
+  {
+    "id": "nosql",
+    "title": "SQL vs. NoSQL: Exploring the Role of RDMS in Scalable Systems Built on NoSQL Infrastructure",
+    "date": "2024-04-09",
+    "summary": "Handling large volumes of data and achieving high scalability can be challenging for traditional relational databases. On the other hand, NoSQL databases are better equipped to handle such tasks.  Interestingly, the relational database component usually plays a vital role in managing specific tasks, such as creating new user accounts. To understand the reason behind this, we need to know two basic principles of RDMS (ACID) and NoSQL (BASE)",
+    "tags": ["Data Engineering", "Telecom", "Python", "SQL"],
+    "thumbnail": "/images/blog/nosql.png",
+    "externalUrl": "https://www.linkedin.com/pulse/sql-vs-nosql-exploring-role-rdms-scalable-systems-built-dip-lq3lc/",
+    "featured": true
+  },
+  {
+    "id": "rfm",
+    "title": "Decoding Customer Insights: Understanding the Dynamics of RFM (Recency, Frequency, and Monetary Value)",
+    "date": "2024-01-07",
+    "summary": "In today's data-driven world, customer analytics has become an essential tool for businesses to better understand their customers. While aggregate-level analysis provides a general overview of customer behavior, customer analytics delves deeper by providing detailed insights into individual customer behavior. This allows businesses to analyze customer behavior trends, personalize marketing, improve retention, and enhance products and services.",
+    "tags": ["Data Analytics", "Big Data", "Telecom", "BI", "CVM"],
+    "thumbnail": "/images/blog/rfm.png",
+    "externalUrl": "https://www.linkedin.com/pulse/decoding-customer-insights-understanding-dynamics-rfm-dip-c4kuc/?trackingId=lTqkM8sSTjWNTwqm659Z7Q%3D%3D",
+    "featured": false
+  },
+  {
+    "id": "hdfs",
+    "title": "Spark Performance Local FS VS HDFS: Replication Factor is the key",
+    "date": "2023-11-28",
+    "summary": "Can a distributed system like Spark operate more efficiently on distributed storage like Hadoop than on a typical Local File System? While the assumption might lean towards Hadoop being faster, the reality is that this is not always the case. To understand the constraints and logic, it's essential to have a basic understanding of the HDFS file system, how it stores data, and the fundamentals of distributed data processing.",
+    "tags": ["Big Data"],
+    "thumbnail": "/images/blog/hdfs.png",
+    "externalUrl": "https://www.linkedin.com/pulse/spark-performance-local-fs-vs-hdfs-replication-factor-dip-215mc/?trackingId=lTqkM8sSTjWNTwqm659Z7Q%3D%3D",
+    "featured": false
+  },
+  {
+    "id": "sum",
+    "title": "Why 1 + Null = Null where as Sum(1,Null) = 1 ?",
+    "date": "2023-11-23",
+    "summary": "Have you ever wondered why 1 + null results in null, but sum(1, null) equals 1? We all understand the importance of addressing null values prior to analysis and model development. However, nulls behave differently in various situations. Let's dive in and explore how nulls act in different contexts to understand better how to handle them efficiently.",
+    "tags": ["Big Data"],
+    "thumbnail": "/images/blog/sum.png",
+    "externalUrl": "https://www.linkedin.com/pulse/why-1-null-where-sum1null-rezuanur-rahman-dip-ynhrc/?trackingId=lTqkM8sSTjWNTwqm659Z7Q%3D%3D",
+    "featured": false
+  },
+  {
+    "id": "db",
+    "title": "Squeeze the Most Out of Your Data: Making Room for More Data and Insights",
+    "date": "2023-10-26",
+    "summary": "Data is the backbone of our world in today's digital age. We generate and consume vast amounts of data every day in the form of text files, images, videos, and music. However, as our digital repositories continue to expand, we need efficient data management and storage solutions. This is where data compression comes into play.",
+    "tags": ["Big Data", "SQL"],
+    "thumbnail": "/images/blog/db.png",
+    "externalUrl": "https://www.linkedin.com/pulse/squeeze-most-out-your-data-making-room-more-insights-dip-pidzc/?trackingId=lTqkM8sSTjWNTwqm659Z7Q%3D%3D",
+    "featured": false
+  },
+  {
+    "id": "spark",
+    "title": "Diving deep into Key Elements of Apache Spark: Driver & Executor Memory, What are the constraints?",
+    "date": "2023-08-23",
+    "summary": "To understand a distributed computing system, it is important to understand clusters, nodes, and containers. Think of a cluster as a neighborhood with houses (nodes), and each house has rooms (containers). In the world of Spark, tasks are like people doing work, and they need space to work in.",
+    "tags": ["Big Data", "SQL"],
+    "thumbnail": "/images/blog/spark.png",
+    "externalUrl": "https://www.linkedin.com/pulse/diving-deep-key-elements-apache-spark-driver-executor-dip/?trackingId=lTqkM8sSTjWNTwqm659Z7Q%3D%3D",
+    "featured": true
+  },
+  {
+    "id": "spark1",
+    "title": "Roles of Driver Memory and Executor Memory in Spark: Their Impact on Big Data Processing",
+    "date": "2023-08-06",
+    "summary": "In the Spark framework, the driver, acting as the brain, creates tasks and sends them to executor nodes. Executors, the worker nodes, independently process data partitions assigned to them, storing intermediate results in memory or disk for optimization. After completing their tasks, executors send back results to the driver, which collects and combines them to generate the final output. This seamless coordination enables Spark to efficiently process large datasets in parallel, unlocking the power of distributed computing for data-intensive tasks.",
+    "tags": ["Big Data", "Distributed Systems"],
+    "thumbnail": "/images/blog/spark1.png",
+    "externalUrl": "https://www.linkedin.com/pulse/roles-driver-memory-executor-spark-impact-big-data-processing-dip/?trackingId=lTqkM8sSTjWNTwqm659Z7Q%3D%3D",
+    "featured": false
+  }, 
+  {
+    "id": "spark2",
+    "title": "Challenges of Skewed Data Join in Hadoop and Spark: The Benefits of Broadcast Join",
+    "date": "2023-08-05",
+    "summary": "Have you ever tried combining a large dataset with a small one? It may not seem like a big deal in traditional systems, but it can cause serious problems in distributed systems.",
+    "tags": ["Big Data", "Distributed Systems"],
+    "thumbnail": "/images/blog/spark2.png",
+    "externalUrl": "https://www.linkedin.com/pulse/challenges-skewed-data-join-hadoop-spark-benefits-broadcast-dip/?trackingId=lTqkM8sSTjWNTwqm659Z7Q%3D%3D",
+    "featured": true
+  }
+]

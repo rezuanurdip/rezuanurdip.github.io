@@ -1,0 +1,44 @@
+[
+  {
+    "id": "geospatial",
+    "title": "Geospatial Data Science",
+    "description": "Network coverage modeling, site placement optimization, and urbanization scoring on large building datasets across Bangladesh.",
+    "icon": "FaMap",
+    "tools": ["GeoPandas", "BallTree", "Folium", "Haversine", "Scikit-learn"]
+  },
+  {
+    "id": "data-engineering",
+    "title": "Data Engineering & Pipelines",
+    "description": "Building and maintaining large-scale ETL pipelines, datamarts, and BI platforms processing 100M+ daily records.",
+    "icon": "FaDatabase",
+    "tools": ["PySpark", "Airflow", "Hadoop", "Oracle", "PostgreSQL"]
+  },
+  {
+    "id": "ml-ai",
+    "title": "Machine Learning & AI",
+    "description": "Supervised and unsupervised ML in production — from customer segmentation and anomaly detection to computer vision for field monitoring.",
+    "icon": "FaBrain",
+    "tools": ["Scikit-learn", "XGBoost", "YOLO", "SparkML", "SageMaker"]
+  },
+  {
+    "id": "genai",
+    "title": "GenAI & LLM Applications",
+    "description": "Embedding-based automation and RAG systems deployed in production — including VOC automation processing 3K+ daily feedbacks.",
+    "icon": "FaRobot",
+    "tools": ["AWS Bedrock", "LangChain", "FAISS", "Embeddings", "RAG"]
+  },
+  {
+    "id": "analytics",
+    "title": "Telecom Analytics & BI",
+    "description": "Strategic analytics for a 50M+ user base — customer personas, digital usage insights, campaign KPIs, and CXO-level dashboards.",
+    "icon": "FaChartLine",
+    "tools": ["Tableau", "SQL", "Python", "Pandas", "Matplotlib"]
+  },
+  {
+    "id": "cloud",
+    "title": "Cloud & DevOps",
+    "description": "Deploying ML and data solutions on AWS — S3, EC2, SageMaker, Bedrock — with automation via GitHub Actions and bash scripting.",
+    "icon": "FaCloud",
+    "tools": ["AWS", "S3", "EC2", "SageMaker", "GitHub Actions"]
+  }
+]
