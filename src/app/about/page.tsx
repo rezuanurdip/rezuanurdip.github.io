@@ -36,7 +36,7 @@ export default function AboutPage() {
             </div>
 
             <p>
-              I&apos;m a data professional based in Dhaka, Bangladesh, currently working as Associate Manager of AI and Data Science at{' '}
+              I&apos;m a data professional based in Dhaka, Bangladesh, currently working as Manager of AI and Data Science at{' '}
               <span className="text-surface-100 font-medium">Robi Axiata Limited</span>, one of Bangladesh&apos;s largest telecom operators.
               Over 4+ years I&apos;ve progressed from intern to individual contributor to manager, touching almost every layer of the data stack along the way.
             </p>
@@ -91,7 +91,7 @@ export default function AboutPage() {
               <h3 className="text-sm font-mono text-surface-400 uppercase tracking-wider mb-4">Quick facts</h3>
               <div className="space-y-3">
                 {[
-                  ['Role',       'Associate Manager, AI & DS'],
+                  ['Role',       'Manager, AI & DS'],
                   ['Company',    'Robi Axiata Limited'],
                   ['Location',   'Dhaka, Bangladesh'],
                   ['Education',  'BSc in EEE — IUT, OIC'],

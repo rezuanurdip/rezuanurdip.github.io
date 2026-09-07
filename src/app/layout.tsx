@@ -5,6 +5,7 @@ import Footer from '@/components/layout/Footer';
 import profile from '../../data/profile.json';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://rezuanurdip.github.io'),
   title: `${profile.name} — ${profile.title}`,
   description: profile.bio,
   keywords: ['Data Scientist', 'Analytics Engineer', 'Machine Learning', 'Robi Axiata', 'Bangladesh', 'Geospatial', 'LLM'],
@@ -14,11 +15,13 @@ export const metadata: Metadata = {
     description: profile.tagline,
     type: 'website',
     locale: 'en_US',
+    images: [{ url: '/images/display.png', width: 1200, height: 630, alt: profile.name }],
   },
   twitter: {
     card: 'summary_large_image',
     title: `${profile.name} — ${profile.title}`,
     description: profile.tagline,
+    images: ['/images/display.png'],
   },
 };
 
