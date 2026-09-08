@@ -9,7 +9,7 @@ export default function ExperiencePage() {
           <p className="section-label">Career</p>
           <h1 className="section-heading text-5xl">Experience</h1>
           <p className="section-subheading">
-            4+ years at Robi Axiata Limited, growing from intern to Associate Manager of AI & Data Science.
+            4+ years at Robi Axiata Limited, growing from intern to Manager of AI & Data Science.
           </p>
         </div>
 
