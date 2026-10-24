@@ -1,8 +1,24 @@
 import type { Metadata } from 'next';
+import { Manrope, IBM_Plex_Mono } from 'next/font/google';
 import '@/styles/globals.css';
 import Navbar from '@/components/layout/Navbar';
-import Footer from '@/components/layout/Footer';
 import profile from '../../data/profile.json';
+
+const manrope = Manrope({
+  subsets: ['latin'],
+  weight: ['300', '400', '500'],
+  display: 'swap',
+  adjustFontFallback: true,
+  variable: '--font-sans',
+});
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  display: 'swap',
+  adjustFontFallback: true,
+  variable: '--font-mono',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://rezuanurdip.github.io'),
@@ -25,21 +41,30 @@ export const metadata: Metadata = {
   },
 };
 
+const themeInitScript = `
+(function () {
+  try {
+    var stored = window.localStorage.getItem('theme');
+    if (stored === 'light' || stored === 'dark') {
+      document.documentElement.setAttribute('data-theme', stored);
+    }
+  } catch (e) {}
+})();
+`;
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark scroll-smooth">
+    <html lang="en" className={`${manrope.variable} ${plexMono.variable} scroll-smooth`} suppressHydrationWarning>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
-      <body className="bg-navy-900 text-surface-100 antialiased">
+      <body className="bg-paper text-ink antialiased">
         <Navbar />
         <main>{children}</main>
-        <Footer />
       </body>
     </html>
   );

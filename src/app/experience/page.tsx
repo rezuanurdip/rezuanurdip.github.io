@@ -1,70 +1,41 @@
-import { FiMapPin, FiCalendar } from 'react-icons/fi';
+import FigureHeader from '@/components/ui/FigureHeader';
 import experience from '../../../data/experience.json';
 
 export default function ExperiencePage() {
   return (
-    <main className="pt-24 pb-20 bg-navy-900 min-h-screen">
-      <div className="section-container max-w-4xl">
-        <div className="mb-14">
-          <p className="section-label">Career</p>
-          <h1 className="section-heading text-5xl">Experience</h1>
-          <p className="section-subheading">
-            4+ years at Robi Axiata Limited, growing from intern to Manager of AI & Data Science.
-          </p>
-        </div>
+    <main className="pt-28 pb-24 min-h-screen">
+      <div className="section-container max-w-page">
+        <FigureHeader
+          label="CAREER"
+          title="Experience"
+          subheading="4+ years at Robi Axiata Limited, growing from intern to Manager of AI & Data Science."
+        />
 
-        <div className="relative">
-          {/* Vertical line */}
-          <div className="absolute left-5 top-6 bottom-6 w-px bg-gradient-to-b from-accent-500/60 via-accent-500/20 to-transparent" />
-
-          <div className="space-y-12 pl-16">
-            {experience.map((job, i) => (
-              <div key={job.id} className="relative">
-                {/* Timeline dot */}
-                <div className={`absolute -left-11 top-1.5 w-4 h-4 rounded-full border-2 flex items-center justify-center ${
-                  job.current
-                    ? 'border-accent-400 bg-accent-400/20'
-                    : 'border-surface-600 bg-navy-900'
-                }`}>
-                  {job.current && (
-                    <div className="w-1.5 h-1.5 rounded-full bg-accent-400 animate-pulse" />
-                  )}
-                </div>
-
-                <div className="card card-hover">
-                  {/* Header */}
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-5">
-                    <div>
-                      <h2 className="font-display font-bold text-lg text-surface-50 leading-snug">{job.role}</h2>
-                      <p className="text-accent-400 font-medium mt-1">{job.company}</p>
-                    </div>
-
-                    <div className="flex flex-col items-start sm:items-end gap-1.5 shrink-0">
-                      {job.current && (
-                        <span className="tag-accent text-xs">Current</span>
-                      )}
-                      <span className="flex items-center gap-1.5 text-xs text-surface-400 font-mono">
-                        <FiCalendar size={11} /> {job.startDate} — {job.endDate}
-                      </span>
-                      <span className="flex items-center gap-1.5 text-xs text-surface-400">
-                        <FiMapPin size={11} /> {job.location}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Highlights */}
-                  <ul className="space-y-2.5">
-                    {job.highlights.map((h, j) => (
-                      <li key={j} className="flex items-start gap-3 text-sm text-surface-300 leading-relaxed">
-                        <span className="text-accent-400 mt-1 shrink-0">▸</span>
-                        {h}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+        <div className="grid sm:grid-cols-[120px_1px_1fr] gap-x-8">
+          {experience.map((job) => (
+            <div key={job.id} className="contents">
+              <div className="font-mono text-meta text-graphite tabular pt-1 sm:text-right">
+                {job.startDate} &ndash; {job.endDate}
               </div>
-            ))}
-          </div>
+              <div className="hidden sm:block bg-rule" />
+              <div className="pb-14 border-b border-rule sm:border-b-0 mb-8 sm:mb-0">
+                <div className="flex items-baseline gap-3 flex-wrap mb-1">
+                  <h2 className="text-h3 text-ink">{job.role}</h2>
+                  {job.current && <span className="font-mono text-meta text-accent uppercase">current</span>}
+                </div>
+                <p className="text-graphite text-sm mb-1">
+                  {job.company} &middot; {job.location}
+                </p>
+                <ul className="mt-4 space-y-2.5">
+                  {job.highlights.map((h, j) => (
+                    <li key={j} className="text-ink/80 text-sm leading-[1.6] pl-4 border-l border-rule">
+                      {h}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </main>

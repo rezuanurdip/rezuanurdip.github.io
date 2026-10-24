@@ -1,4 +1,5 @@
-import { FiAward, FiStar, FiCheckCircle, FiTrendingUp } from 'react-icons/fi';
+import FigureHeader from '@/components/ui/FigureHeader';
+import DotPlot from '@/components/viz/DotPlot';
 
 interface Achievement {
   id: string;
@@ -8,95 +9,77 @@ interface Achievement {
   category: string;
 }
 
-const catIcon: Record<string, React.ElementType> = {
-  award:         FiStar,
-  'team-award':  FiAward,
-  certification: FiCheckCircle,
-};
+interface Group {
+  title: string;
+  issuer: string;
+  dates: string[];
+}
 
-const catColor: Record<string, string> = {
-  award:         'text-amber-400 bg-amber-400/10 border-amber-400/20',
-  'team-award':  'text-accent-400 bg-accent-400/10 border-accent-400/20',
-  certification: 'text-purple-400 bg-purple-400/10 border-purple-400/20',
-};
+function groupByTitle(items: Achievement[]): Group[] {
+  const map = new Map<string, Group>();
+  for (const a of items) {
+    const existing = map.get(a.title);
+    if (existing) {
+      existing.dates.push(a.date);
+    } else {
+      map.set(a.title, { title: a.title, issuer: a.issuer, dates: [a.date] });
+    }
+  }
+  return Array.from(map.values());
+}
 
-const isTopFive = (a: Achievement) => a.title.toLowerCase().startsWith('top 5%');
+// Maps a mix of "YYYY", "YYYY-YYYY", and "Qn YYYY" date strings onto a 0-1 axis.
+function datesToPositions(dates: string[]): number[] {
+  const toYear = (d: string) => {
+    const m = d.match(/\d{4}/g);
+    return m ? parseInt(m[m.length - 1], 10) : 2023;
+  };
+  const years = dates.map(toYear);
+  const min = Math.min(...years, 2021);
+  const max = Math.max(...years, 2026);
+  const span = max - min || 1;
+  return years.map((y) => (y - min) / span);
+}
+
+function Ledger({ title, items }: { title: string; items: Achievement[] }) {
+  const groups = groupByTitle(items);
+  return (
+    <div>
+      <p className="meta-label mb-4">{title}</p>
+      <div className="border-t border-rule">
+        {groups.map((g) => (
+          <div key={g.title} className="flex items-center justify-between gap-4 py-3 border-b border-rule">
+            <div className="min-w-0">
+              <p className="text-ink text-sm">
+                {g.title}
+                {g.dates.length > 1 && <span className="text-graphite"> &times; {g.dates.length}</span>}
+              </p>
+              <p className="text-graphite text-xs mt-0.5">{g.issuer}</p>
+            </div>
+            {g.dates.length > 1 ? (
+              <DotPlot values={datesToPositions(g.dates)} domainLabel={g.title} width={100} height={14} />
+            ) : (
+              <span className="font-mono text-meta text-graphite tabular shrink-0">{g.dates[0]}</span>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function AchievementsSection({ achievements }: { achievements: Achievement[] }) {
   const corporate = achievements.filter((a) => a.category === 'award' || a.category === 'team-award');
   const certifications = achievements.filter((a) => a.category === 'certification');
 
-  // Highlighted items (Top 5%) lead the list, rest keep their original order.
-  const corporateSorted = [
-    ...corporate.filter(isTopFive),
-    ...corporate.filter((a) => !isTopFive(a)),
-  ];
-
   return (
-    <section className="section-padding bg-navy-800/40">
+    <section className="py-24 lg:py-40 border-t border-rule">
       <div className="section-container">
-        <div className="text-center mb-12">
-          <p className="section-label">Recognition</p>
-          <h2 className="section-heading">Achievements</h2>
-        </div>
+        <FigureHeader label="RECOGNITION" title="Achievements" />
 
-        <div className="space-y-12">
-          <div>
-            <h3 className="text-sm font-mono text-surface-400 uppercase tracking-wider mb-4">
-              Corporate Awards
-            </h3>
-            <div className="grid md:grid-cols-3 gap-3">
-              {corporateSorted.map((a) => {
-                const Icon = isTopFive(a) ? FiTrendingUp : catIcon[a.category] || FiStar;
-                const colorClass = isTopFive(a)
-                  ? 'text-amber-300 bg-amber-400/20 border-amber-400/40'
-                  : catColor[a.category] || '';
-                return (
-                  <div
-                    key={a.id}
-                    className={`card card-hover flex items-start gap-3 ${
-                      isTopFive(a) ? 'ring-1 ring-amber-400/40 bg-amber-400/5' : ''
-                    }`}
-                  >
-                    <div className={`w-8 h-8 rounded-lg border flex items-center justify-center shrink-0 ${colorClass}`}>
-                      <Icon size={14} />
-                    </div>
-                    <div>
-                      <p className={`text-sm font-medium ${isTopFive(a) ? 'text-amber-300' : 'text-surface-100'}`}>
-                        {a.title}
-                      </p>
-                      <p className="text-xs text-surface-400 mt-0.5">{a.issuer}</p>
-                      <p className="text-xs text-surface-500 font-mono mt-1">{a.date}</p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-mono text-surface-400 uppercase tracking-wider mb-4">
-              Certifications / Courses
-            </h3>
-            <div className="grid md:grid-cols-3 gap-3">
-              {certifications.map((a) => {
-                const Icon = catIcon[a.category] || FiCheckCircle;
-                const colorClass = catColor[a.category] || '';
-                return (
-                  <div key={a.id} className="card card-hover flex items-start gap-3">
-                    <div className={`w-8 h-8 rounded-lg border flex items-center justify-center shrink-0 ${colorClass}`}>
-                      <Icon size={14} />
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium text-surface-100">{a.title}</p>
-                      <p className="text-xs text-surface-400 mt-0.5">{a.issuer}</p>
-                      <p className="text-xs text-surface-500 font-mono mt-1">{a.date}</p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+        <div className="grid md:grid-cols-2 gap-x-12 gap-y-12">
+          <Ledger title="Awards" items={corporate} />
+          <Ledger title="Certifications" items={certifications} />
         </div>
       </div>
     </section>

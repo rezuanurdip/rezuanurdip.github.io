@@ -1,5 +1,7 @@
 import HeroSection from '@/components/sections/HeroSection';
+import StatementBand from '@/components/sections/StatementBand';
 import MetricsBand from '@/components/sections/MetricsBand';
+import StatsSection from '@/components/sections/StatsSection';
 import BlogSlideshow from '@/components/sections/BlogSlideshow';
 import WorkAreas from '@/components/sections/WorkAreas';
 import FeaturedProjects from '@/components/sections/FeaturedProjects';
@@ -23,7 +25,9 @@ export default function HomePage() {
   return (
     <>
       <HeroSection profile={profile} />
+      <StatementBand tagline={profile.tagline} bio={profile.bio} />
       <MetricsBand />
+      <StatsSection metrics={profile.metrics} />
       <BlogSlideshow posts={featuredPosts} />
       <WorkAreas areas={workAreas} />
       <FeaturedProjects projects={featuredProjects} />

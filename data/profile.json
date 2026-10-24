@@ -13,11 +13,9 @@
   "resumeUrl": "/Rezuanur_Rahman_Dip_Resume.pdf",
   "avatar": "/images/avatar.jpg",
   "metrics": [
-    { "value": "121M", "label": "rows processed for site planning" },
     { "value": "50M+", "label": "users in Customer360" },
     { "value": "300+", "label": "daily KPIs delivered" },
-    { "value": "80%", "label": "VOC automation accuracy" },
-    { "value": "20%", "label": "improvement in network placements" },
-    { "value": "3K+", "label": "feedbacks processed daily" }
+    { "value": "5%", "label": "optimization in new acquisition targets" },
+    { "value": "20%", "label": "improvement in network placements" }
   ]
 }

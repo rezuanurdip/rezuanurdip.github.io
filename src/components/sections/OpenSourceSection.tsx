@@ -1,4 +1,9 @@
-import { FiGithub, FiStar, FiCode } from 'react-icons/fi';
+'use client';
+
+import { useState } from 'react';
+import { FiGithub, FiCheck, FiCopy } from 'react-icons/fi';
+import FigureHeader from '@/components/ui/FigureHeader';
+import LabeledScatter from '@/components/viz/LabeledScatter';
 
 interface OSS {
   id: string;
@@ -11,58 +16,54 @@ interface OSS {
 }
 
 export default function OpenSourceSection({ items }: { items: OSS[] }) {
+  const [copied, setCopied] = useState(false);
+
+  const copy = () => {
+    navigator.clipboard?.writeText('pip install semantic-sense');
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
+  };
+
   return (
-    <section className="section-padding bg-navy-900">
+    <section className="py-24 lg:py-40 border-t border-rule">
       <div className="section-container">
-        <div className="text-center mb-12">
-          <p className="section-label">Open source</p>
-          <h2 className="section-heading">Built for the community</h2>
-          <p className="section-subheading mx-auto">
-            Lightweight, opinionated libraries that solve real problems.
-          </p>
-        </div>
+        <FigureHeader label="OPEN SOURCE" title="Built for the community" />
 
         {items.map((item) => (
-          <div
-            key={item.id}
-            className="card card-hover max-w-3xl mx-auto border-accent-500/20 bg-gradient-to-br from-navy-800 to-navy-800/60"
-          >
-            {/* Header */}
-            <div className="flex items-start justify-between gap-4 mb-4">
-              <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-lg bg-accent-500/15 border border-accent-500/30 flex items-center justify-center">
-                  <FiCode size={16} className="text-accent-400" />
-                </div>
-                <div>
-                  <h3 className="font-display font-bold text-surface-50 text-lg">{item.name}</h3>
-                  <span className="text-xs font-mono text-surface-400">{item.language}</span>
-                </div>
+          <div key={item.id} className="grid lg:grid-cols-2 gap-12 items-start">
+            <div>
+              <div className="flex items-baseline justify-between gap-4 mb-5">
+                <h3 className="text-h3 text-ink">{item.name}</h3>
+                <span className="font-mono text-meta text-graphite">{item.language.toLowerCase()}</span>
               </div>
+
+              <p className="text-ink/80 text-base leading-[1.6] mb-4 max-w-prose">{item.description}</p>
+              <p className="text-ink/80 text-sm leading-[1.6] mb-6 max-w-prose">{item.longDescription}</p>
 
               <a
                 href={item.repo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm px-4 py-1.5 rounded-lg border border-surface-700/40 text-surface-300 hover:border-accent-500/50 hover:text-accent-400 transition-all font-medium"
+                className="inline-flex items-center gap-2 text-sm text-ink hover:text-accent transition-colors mb-6"
               >
-                <FiGithub size={14} /> GitHub
+                <FiGithub size={14} /> View on GitHub
               </a>
+
+              <div className="bg-ink text-paper font-mono text-sm px-5 py-4 flex items-center justify-between gap-4">
+                <span>pip install semantic-sense</span>
+                <button
+                  type="button"
+                  onClick={copy}
+                  aria-label="Copy install command"
+                  className="text-paper/60 hover:text-paper transition-colors shrink-0"
+                >
+                  {copied ? <FiCheck size={14} /> : <FiCopy size={14} />}
+                </button>
+              </div>
             </div>
 
-            <p className="text-surface-300 text-sm leading-relaxed mb-3">
-              {item.description}
-            </p>
-            <p className="text-surface-400 text-sm leading-relaxed">
-              {item.longDescription}
-            </p>
-
-            {/* Code snippet teaser */}
-            <div className="mt-5 rounded-xl bg-navy-900/80 border border-surface-700/30 p-4 font-mono text-xs text-surface-400 overflow-x-auto">
-              <span className="text-accent-400">pip install</span> semantic-sense
-              <br />
-              <span className="text-surface-500"># Detects that "bread" → "sandwich" is normal,</span>
-              <br />
-              <span className="text-surface-500"># but "bread" → "casino" is anomalous</span>
+            <div>
+              <LabeledScatter />
             </div>
           </div>
         ))}

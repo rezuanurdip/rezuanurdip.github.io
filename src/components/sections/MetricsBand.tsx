@@ -8,18 +8,11 @@ const DOMAINS = [
 
 export default function MetricsBand() {
   return (
-    <section className="bg-navy-800/60 border-y border-surface-700/20 py-10">
+    <section className="border-y border-rule py-5">
       <div className="section-container">
-        <div className="flex flex-wrap justify-center gap-4">
-          {DOMAINS.map((domain) => (
-            <span
-              key={domain}
-              className="font-display font-semibold text-sm sm:text-base text-accent-300 bg-accent-500/10 border border-accent-500/25 rounded-full px-5 py-2.5 hover:bg-accent-500/20 hover:text-accent-200 transition-colors"
-            >
-              {domain}
-            </span>
-          ))}
-        </div>
+        <p className="font-mono text-meta uppercase tracking-[0.12em] text-graphite text-center sm:text-left">
+          {DOMAINS.join('  /  ')}
+        </p>
       </div>
     </section>
   );

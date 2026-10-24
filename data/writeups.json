@@ -1,0 +1,35 @@
+[
+  {
+    "id": "on-slow-mornings",
+    "slug": "on-slow-mornings",
+    "title": "On Slow Mornings",
+    "date": "2026-09-01",
+    "tag": "Reflection",
+    "excerpt": "Sample entry — replace with real content. A short reflection on the value of unhurried mornings before the day's noise begins.",
+    "contentFile": "on-slow-mornings.md",
+    "readingTime": "3 min",
+    "featured": true
+  },
+  {
+    "id": "quiet-hours",
+    "slug": "quiet-hours",
+    "title": "Quiet Hours",
+    "date": "2026-08-20",
+    "tag": "Poems",
+    "excerpt": "Sample entry — replace with real content. A short poem about stillness and the hours between work and rest.",
+    "contentFile": "quiet-hours.md",
+    "readingTime": "1 min",
+    "featured": false
+  },
+  {
+    "id": "notes-from-the-field",
+    "slug": "notes-from-the-field",
+    "title": "Notes From the Field",
+    "date": "2026-07-15",
+    "tag": "Short Notes",
+    "excerpt": "Sample entry — replace with real content. A casual, blog-style write-up about a small lesson learned outside of work.",
+    "contentFile": "notes-from-the-field.md",
+    "readingTime": "4 min",
+    "featured": false
+  }
+]

@@ -1,71 +1,50 @@
-import { FiExternalLink, FiBookOpen, FiAward } from 'react-icons/fi';
+import { FiExternalLink } from 'react-icons/fi';
+import FigureHeader from '@/components/ui/FigureHeader';
+import DotPlot from '@/components/viz/DotPlot';
 import publications from '../../../data/publications.json';
 
 export default function PublicationsPage() {
-  const journals     = publications.filter((p) => p.type === 'journal');
-  const conferences  = publications.filter((p) => p.type === 'conference');
+  const years = publications.map((p) => p.year);
+  const min = Math.min(...years);
+  const max = Math.max(...years) || min + 1;
+  const span = max - min || 1;
+  const positions = years.map((y) => (y - min) / span);
 
   return (
-    <main className="pt-24 pb-20 bg-navy-900 min-h-screen">
-      <div className="section-container max-w-4xl">
-        <div className="mb-14">
-          <p className="section-label">Research</p>
-          <h1 className="section-heading text-5xl">Publications</h1>
-          <p className="section-subheading">
-            Peer-reviewed work in machine learning for healthcare diagnostics — published in a Q2 impact journal and two IEEE conferences.
-          </p>
+    <main className="pt-28 pb-24 min-h-screen">
+      <div className="section-container max-w-page">
+        <FigureHeader
+          label="RESEARCH"
+          title="Publications"
+          subheading="Peer-reviewed work in machine learning for healthcare diagnostics — a Q2 journal and two IEEE conferences."
+        />
+
+        <div className="mb-10">
+          <DotPlot values={positions} domainLabel="publication years" width={320} height={16} />
+          <div className="flex justify-between font-mono text-meta text-graphite mt-1" style={{ width: 320 }}>
+            <span>{min}</span>
+            <span>{max}</span>
+          </div>
         </div>
 
-        {/* Journal */}
-        <div className="mb-12">
-          <h2 className="text-sm font-mono text-surface-400 uppercase tracking-wider flex items-center gap-2 mb-5">
-            <FiAward size={14} className="text-accent-400" /> Journal articles
-          </h2>
-          <div className="space-y-4">
-            {journals.map((pub) => (
-              <div key={pub.id} className="card card-hover">
-                <div className="flex flex-wrap items-center gap-2 mb-3">
-                  <span className="tag bg-accent-900/40 border-accent-700/40 text-accent-300">{pub.quartile}</span>
-                  <span className="text-xs text-surface-500 font-mono">{pub.year}</span>
-                </div>
-                <h3 className="font-medium text-surface-100 mb-1.5 leading-snug">{pub.title}</h3>
-                <p className="text-sm text-surface-400 italic mb-3">{pub.venue}</p>
-                <p className="text-sm text-surface-400 leading-relaxed mb-4">{pub.abstract}</p>
+        <div className="border-t border-rule">
+          {publications.map((pub) => (
+            <div key={pub.id} className="grid sm:grid-cols-12 gap-4 py-8 border-b border-rule">
+              <span className="font-mono text-meta text-graphite tabular sm:col-span-2">
+                {pub.quartile} &middot; {pub.year}
+              </span>
+              <div className="sm:col-span-10">
+                <h2 className="text-h3 text-ink mb-1.5 leading-snug">{pub.title}</h2>
+                <p className="text-graphite text-sm italic mb-3">{pub.venue}</p>
+                <p className="text-ink/80 text-sm leading-[1.6] mb-4 max-w-prose">{pub.abstract}</p>
                 {pub.link && pub.link !== '#' && (
-                  <a href={pub.link} target="_blank" rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-sm text-accent-400 hover:text-accent-300 transition-colors">
+                  <a href={pub.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm text-ink hover:text-accent transition-colors">
                     View paper <FiExternalLink size={13} />
                   </a>
                 )}
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Conferences */}
-        <div>
-          <h2 className="text-sm font-mono text-surface-400 uppercase tracking-wider flex items-center gap-2 mb-5">
-            <FiBookOpen size={14} className="text-accent-400" /> Conference papers
-          </h2>
-          <div className="space-y-4">
-            {conferences.map((pub) => (
-              <div key={pub.id} className="card card-hover">
-                <div className="flex flex-wrap items-center gap-2 mb-3">
-                  <span className="tag bg-navy-700/60 border-surface-700/30 text-surface-300">{pub.quartile}</span>
-                  <span className="text-xs text-surface-500 font-mono">{pub.year}</span>
-                </div>
-                <h3 className="font-medium text-surface-100 mb-1.5 leading-snug">{pub.title}</h3>
-                <p className="text-sm text-surface-400 italic mb-3">{pub.venue}</p>
-                <p className="text-sm text-surface-400 leading-relaxed mb-4">{pub.abstract}</p>
-                {pub.link && pub.link !== '#' && (
-                  <a href={pub.link} target="_blank" rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-sm text-accent-400 hover:text-accent-300 transition-colors">
-                    View paper <FiExternalLink size={13} />
-                  </a>
-                )}
-              </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </main>

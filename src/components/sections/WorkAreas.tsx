@@ -1,11 +1,23 @@
 import Link from 'next/link';
 import { FiArrowRight } from 'react-icons/fi';
+import FigureHeader from '@/components/ui/FigureHeader';
+import LegendTags from '@/components/ui/LegendTags';
 import {
-  FaMap, FaDatabase, FaBrain, FaRobot, FaChartLine, FaCloud
-} from 'react-icons/fa';
+  HexbinGlyph,
+  DagGlyph,
+  DecisionBoundaryGlyph,
+  EmbeddingClusterGlyph,
+  BarSeriesGlyph,
+  NodeGraphGlyph,
+} from '@/components/viz/Glyphs';
 
-const iconMap: Record<string, React.ElementType> = {
-  FaMap, FaDatabase, FaBrain, FaRobot, FaChartLine, FaCloud
+const glyphMap: Record<string, React.ComponentType> = {
+  FaMap: HexbinGlyph,
+  FaDatabase: DagGlyph,
+  FaBrain: DecisionBoundaryGlyph,
+  FaRobot: EmbeddingClusterGlyph,
+  FaChartLine: BarSeriesGlyph,
+  FaCloud: NodeGraphGlyph,
 };
 
 interface Area {
@@ -18,60 +30,36 @@ interface Area {
 
 export default function WorkAreas({ areas }: { areas: Area[] }) {
   return (
-    <section className="py-24 lg:py-36 bg-navy-800/40">
-      <div className="section-container-wide">
-        <div className="text-center mb-16">
-          <p className="section-label">What I do</p>
-          <h2 className="font-display font-bold text-4xl lg:text-5xl text-surface-50 mb-5">Work areas</h2>
-          <p className="text-surface-300 text-lg lg:text-xl max-w-2xl mx-auto">
-            A cross-stack practitioner — from raw pipeline to deployed model to executive dashboard.
-          </p>
-        </div>
+    <section className="py-24 lg:py-40 border-t border-rule">
+      <div className="section-container">
+        <FigureHeader
+          label="WORK AREAS"
+          title="A cross-stack practitioner"
+          subheading="From raw pipeline to deployed model to executive dashboard."
+        />
 
-        <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-10">
+        <div className="grid sm:grid-cols-2 xl:grid-cols-3 border-t border-l border-rule">
           {areas.map((area) => {
-            const Icon = iconMap[area.icon] || FaBrain;
+            const Glyph = glyphMap[area.icon] || DecisionBoundaryGlyph;
             return (
-              <div
-                key={area.id}
-                className="card card-hover group p-10"
-              >
-                {/* Icon */}
-                <div className="w-16 h-16 rounded-2xl bg-accent-500/10 border border-accent-500/20 flex items-center justify-center mb-7 group-hover:bg-accent-500/20 transition-colors">
-                  <Icon className="text-accent-400" size={30} />
-                </div>
-
-                <h3 className="font-display font-semibold text-2xl text-surface-100 mb-3">
-                  {area.title}
-                </h3>
-
-                <p className="text-lg text-surface-400 leading-relaxed mb-7">
-                  {area.description}
-                </p>
-
-                {/* Tools */}
-                <div className="flex flex-wrap gap-2 mt-auto">
-                  {area.tools.map((t) => (
-                    <span key={t} className="text-sm font-mono px-3 py-1.5 rounded bg-navy-700/60 text-surface-400 border border-surface-700/30">
-                      {t}
-                    </span>
-                  ))}
-                </div>
+              <div key={area.id} className="group border-r border-b border-rule p-8 lg:p-10">
+                <Glyph />
+                <h3 className="text-h3 text-ink mt-6 mb-3">{area.title}</h3>
+                <p className="text-ink/80 text-sm leading-[1.6] mb-6 max-w-[34ch]">{area.description}</p>
+                <LegendTags items={area.tools.map((t) => t.toLowerCase())} />
               </div>
             );
           })}
         </div>
 
-        {/* Callout banner */}
         <Link
           href="/experience"
-          className="mt-12 flex items-center justify-between gap-4 rounded-2xl border border-accent-500/25 bg-accent-500/10 px-8 py-7 hover:bg-accent-500/15 hover:border-accent-500/40 transition-colors group"
+          className="mt-10 flex items-center justify-between gap-4 border-t border-b border-rule py-6 group hover:border-accent transition-colors"
         >
-          <span className="font-display font-semibold text-lg sm:text-xl text-surface-100">
-            Explore my detailed work experience
-          </span>
-          <span className="flex items-center gap-2 text-accent-400 font-medium text-lg shrink-0 group-hover:translate-x-1 transition-transform">
-            View experience <FiArrowRight size={20} />
+          <span className="text-lg text-ink">Explore my detailed work experience</span>
+          <span className="flex items-center gap-2 text-graphite group-hover:text-accent transition-colors shrink-0">
+            View experience
+            <FiArrowRight size={16} className="transition-transform duration-200 group-hover:translate-x-1" />
           </span>
         </Link>
       </div>

@@ -1,5 +1,7 @@
 import Link from 'next/link';
-import { FiArrowRight, FiExternalLink, FiGithub } from 'react-icons/fi';
+import { FiArrowRight } from 'react-icons/fi';
+import FigureHeader from '@/components/ui/FigureHeader';
+import LegendTags from '@/components/ui/LegendTags';
 
 interface Project {
   id: string;
@@ -14,78 +16,31 @@ interface Project {
 
 export default function FeaturedProjects({ projects }: { projects: Project[] }) {
   return (
-    <section className="section-padding bg-navy-900">
+    <section className="py-24 lg:py-40 border-t border-rule">
       <div className="section-container">
-        <div className="flex items-end justify-between mb-10">
-          <div>
-            <p className="section-label">Selected work</p>
-            <h2 className="section-heading mb-0">Projects</h2>
-          </div>
-          <Link href="/projects" className="hidden sm:flex items-center gap-2 text-sm text-accent-400 hover:text-accent-300 transition-colors font-medium">
-            All projects <FiArrowRight size={14} />
-          </Link>
-        </div>
+        <FigureHeader label="SELECTED WORK" title="Projects" />
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {projects.map((project, i) => (
-            <div
-              key={project.id}
-              className={`card card-hover flex flex-col group ${i === 0 ? 'md:col-span-2' : ''}`}
-            >
-              {/* Top row */}
-              <div className="flex items-start justify-between gap-4 mb-4">
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((t) => (
-                    <span key={t} className="tag-accent">{t}</span>
-                  ))}
-                </div>
-                <span className="text-xs font-mono text-surface-500 shrink-0">{project.year}</span>
+        <div className="border-t border-rule">
+          {projects.map((project) => (
+            <div key={project.id} className="grid sm:grid-cols-12 gap-4 py-7 border-b border-rule">
+              <span className="font-mono text-meta text-graphite tabular sm:col-span-1">{project.year}</span>
+              <div className="sm:col-span-7">
+                <h3 className="text-h3 text-ink mb-2">{project.title}</h3>
+                <p className="text-ink/80 text-sm leading-[1.6] max-w-[56ch]">{project.summary}</p>
               </div>
-
-              <h3 className="font-display font-bold text-lg text-surface-50 mb-3 group-hover:text-accent-300 transition-colors">
-                {project.title}
-              </h3>
-
-              <p className="text-surface-400 text-sm leading-relaxed mb-5 flex-1">
-                {project.summary}
-              </p>
-
-              {/* Stack */}
-              <div className="flex flex-wrap gap-1.5 mb-5">
-                {project.stack.map((s) => (
-                  <span key={s} className="text-xs font-mono px-2 py-0.5 rounded bg-navy-700/50 border border-surface-700/30 text-surface-400">
-                    {s}
-                  </span>
-                ))}
-              </div>
-
-              {/* Links */}
-              <div className="flex items-center gap-4 pt-4 border-t border-surface-700/20">
-                {project.links.repo && (
-                  <a href={project.links.repo} target="_blank" rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-xs text-surface-400 hover:text-accent-400 transition-colors">
-                    <FiGithub size={13} /> Repo
-                  </a>
-                )}
-                {project.links.demo && (
-                  <a href={project.links.demo} target="_blank" rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-xs text-surface-400 hover:text-accent-400 transition-colors">
-                    <FiExternalLink size={13} /> Live demo
-                  </a>
-                )}
-                {!project.links.repo && !project.links.demo && (
-                  <span className="text-xs text-surface-600 font-mono">Internal / proprietary</span>
-                )}
+              <div className="sm:col-span-4 sm:text-right">
+                <LegendTags items={project.stack.map((s) => s.toLowerCase())} />
+                <p className="font-mono text-meta text-graphite mt-3">
+                  {!project.links.repo && !project.links.demo ? 'internal / proprietary' : 'public'}
+                </p>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-5 text-center sm:hidden">
-          <Link href="/projects" className="inline-flex items-center gap-2 text-sm text-accent-400 font-medium">
-            All projects <FiArrowRight size={14} />
-          </Link>
-        </div>
+        <Link href="/projects" className="inline-flex items-center gap-2 text-sm text-graphite hover:text-ink transition-colors mt-6">
+          All projects <FiArrowRight size={14} />
+        </Link>
       </div>
     </section>
   );
