@@ -31,6 +31,7 @@ export default function Navbar() {
   }, []);
 
   return (
+    <>
     <header
       className={`fixed top-0 left-0 right-0 z-50 bg-paper/90 backdrop-blur-sm border-b border-rule transition-transform duration-300 ${
         hidden ? '-translate-y-full' : 'translate-y-0'
@@ -76,30 +77,31 @@ export default function Navbar() {
           <span className="font-mono text-sm">{open ? 'close' : 'menu'}</span>
         </button>
       </div>
-
-      {open && (
-        <div className="lg:hidden fixed inset-0 top-14 bg-paper flex flex-col gap-8 px-6 py-12 overflow-y-auto">
-          {navLinks.map((l) => {
-            const active = pathname === l.href || pathname?.startsWith(`${l.href}/`);
-            return (
-              <Link
-                key={l.href}
-                href={l.href}
-                className={`text-3xl tracking-[-0.02em] ${active ? 'text-accent' : 'text-ink'}`}
-                onClick={() => setOpen(false)}
-              >
-                {l.label}
-              </Link>
-            );
-          })}
-          <a href="/Rezuanur_Rahman_Dip_Resume.pdf" download className="font-mono text-sm text-graphite mt-4">
-            résumé
-          </a>
-          <div className="mt-4">
-            <ThemeToggle />
-          </div>
-        </div>
-      )}
     </header>
+
+    {open && (
+      <div className="lg:hidden fixed inset-x-0 bottom-0 top-14 z-40 bg-paper flex flex-col gap-5 px-6 py-8 overflow-y-auto">
+        {navLinks.map((l) => {
+          const active = pathname === l.href || pathname?.startsWith(`${l.href}/`);
+          return (
+            <Link
+              key={l.href}
+              href={l.href}
+              className={`text-xl tracking-[-0.01em] ${active ? 'text-accent' : 'text-ink'}`}
+              onClick={() => setOpen(false)}
+            >
+              {l.label}
+            </Link>
+          );
+        })}
+        <a href="/Rezuanur_Rahman_Dip_Resume.pdf" download className="font-mono text-sm text-graphite mt-2">
+          résumé
+        </a>
+        <div className="mt-2">
+          <ThemeToggle />
+        </div>
+      </div>
+    )}
+    </>
   );
 }
